@@ -1,34 +1,48 @@
 import entities.Student;
-import es1.Esercizio1;
+import entities.TipoStudent;
 
 public class Main {
     public static void main(String[] args) {
-        Student aldo = new Student("Aldo", "Baglio");
-        Student giovanni = new Student("Giovanni", "Storti");
-        Student giacomo = new Student("Giacomo", "Poretti");
 
-        Student ajeje = new Student(aldo.name, aldo.surname); // Creare un nuovo oggetto invece di assegnare direttamente
+        Student aldo = new Student(); // I COSTRUTTORE
+        Student giovanni = new Student("Giovanni"); // II° COSTRUTTORE
+        Student giacomo = new Student("Giacomo", "Poretti"); // III° COSTRUTTORE
+        Student giacomo2 = new Student("Giacomo", "Poretti");
+        Student marina = new Student("Marina", "Massironi", TipoStudent.FRONTEND);
 
-        ajeje.name = "Ajeje"; // Modifica solo il nome di ajeje
+        // giacomo2.id = giacomo.id;
 
-        System.out.println(aldo.id);
-        System.out.println(aldo.name);
-        System.out.println(aldo.surname);
+        Student ajeje = aldo; // NON COPIARE MAI GLI OGGETTI COSI'
+        //ajeje.name = "Ajeje";
 
-        System.out.println(giovanni.id);
-        System.out.println(giovanni.name);
-        System.out.println(giovanni.surname);
+        // Esempi di utilizzo di metodi non statici
+/*		aldo.sayHello();
+		giovanni.sayHello();
+		giacomo.sayHello();
+		ajeje.sayHello();
 
-        System.out.println(giacomo.id);
-        System.out.println(giacomo.name);
-        System.out.println(giacomo.surname);
+		// Esempi di utilizzo di metodi statici
+		System.out.println(Math.PI);
+		System.out.println(Esercizio1.isBisestile(2024));
+		System.out.println(Student.school);*/
 
-        aldo.sayHello();
-        giovanni.sayHello();
-        giacomo.sayHello();
-        ajeje.sayHello();
+        System.out.println(aldo);
+        System.out.println(giovanni);
+        System.out.println(giacomo);
+        System.out.println(giacomo2);
+        System.out.println(ajeje);
+        System.out.println(marina);
 
-        System.out.println(Student.school); // Accedere all'attributo statico correttamente
-        System.out.println(Esercizio1.isBisestile(2024)); // Passare direttamente l'anno come argomento
+        marina.setName("h");
+        System.out.println(marina.getName());
+
+
+        if (giacomo.equals(giacomo2)) {
+            System.out.println("I due giacomo sono uguali");
+        } else {
+            System.out.println("Sono diversi");
+        }
     }
+
+
 }
